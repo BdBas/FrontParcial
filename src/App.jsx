@@ -80,17 +80,35 @@ function App() {
 
   if (step === "home") {
     return (
-      <div className="flex flex-col items-center justify-center h-screen gap-4 bg-gray-100">
-        <h1 className="text-3xl font-bold mb-6">Elige una categoría</h1>
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            className="bg-blue-500 text-white px-8 py-3 rounded-lg text-xl hover:bg-blue-700 transition"
-            onClick={() => handleCategory(cat)}
-          >
-            {cat}
-          </button>
-        ))}
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+        <div className="bg-white/80 shadow-xl rounded-3xl px-8 py-10 max-w-md w-full flex flex-col items-center">
+          <h1 className="text-4xl font-extrabold text-purple-700 mb-2 flex items-center gap-2">
+            <span role="img" aria-label="trivia">🎲</span>
+            Trivia App
+          </h1>
+          <p className="text-gray-600 mb-8 text-center">
+            ¡Pon a prueba tus conocimientos! <br />
+            Elige una categoría para comenzar:
+          </p>
+          <div className="grid grid-cols-1 gap-4 w-full">
+            {categories.map((cat, i) => (
+              <button
+                key={cat}
+                className={`
+                  py-3 rounded-xl font-semibold text-lg shadow-md transition
+                  ${i % 2 === 0 ? "bg-gradient-to-r from-blue-400 to-purple-400" : "bg-gradient-to-r from-pink-400 to-yellow-400"}
+                  text-white hover:scale-105 hover:shadow-lg active:scale-95
+                `}
+                onClick={() => handleCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+        <footer className="mt-8 text-gray-400 text-xs">
+          &copy; {new Date().getFullYear()} Trivia App
+        </footer>
       </div>
     );
   }
