@@ -1,4 +1,4 @@
-const API_URL = 'https://tu-backend-url.vercel.app/api';
+const API_URL = 'https://back-parcial.vercel.app/api';
 
 export const generateQuestions = async (category) => {
   try {
